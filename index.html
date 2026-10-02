@@ -46,12 +46,13 @@
   #downloadBtn:disabled{ opacity:.7; cursor:wait; transform:none; }
   #downloadBtn.done{ background:#1f7a3d; }
 
-  /* ========== 纸张：A3 纵向 ========== */
+  /* ========== 纸张：A3 纵向（内容锁定在一页） ========== */
   .paper{
     width:297mm;
-    min-height:420mm;
+    height:420mm;
+    overflow:hidden;
     background:#fdfcf9;
-    padding:10mm 12mm 8mm;
+    padding:8mm 10mm 6mm;
     box-shadow:0 6px 30px rgba(0,0,0,.25);
     display:flex;
     flex-direction:column;
@@ -62,13 +63,13 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:14px;
+    gap:12px;
   }
   .mast-side{
     flex:0 0 auto;
-    width:44mm;
-    font-size:10.5px;
-    line-height:1.8;
+    width:42mm;
+    font-size:10px;
+    line-height:1.7;
     letter-spacing:.08em;
     color:#555;
   }
@@ -78,7 +79,7 @@
     flex:1 1 auto;
     margin:0;
     text-align:center;
-    font-size:46px;
+    font-size:40px;
     font-weight:700;
     line-height:1;
     letter-spacing:.2em;
@@ -87,16 +88,16 @@
   }
   .mast-title small{
     display:block;
-    margin-top:7px;
-    font-size:10px;
+    margin-top:6px;
+    font-size:9.5px;
     font-weight:400;
-    letter-spacing:.6em;
-    text-indent:.6em;
+    letter-spacing:.55em;
+    text-indent:.55em;
     color:#b22222;
   }
 
   .rule-double{
-    margin-top:10px;
+    margin-top:8px;
     border-top:3px solid #1a1a1a;
     border-bottom:1px solid #1a1a1a;
     height:4px;
@@ -105,10 +106,10 @@
   .dateline{
     display:flex;
     justify-content:center;
-    gap:22px;
-    padding:7px 0;
-    font-size:10.5px;
-    letter-spacing:.16em;
+    gap:20px;
+    padding:5px 0;
+    font-size:10px;
+    letter-spacing:.15em;
     color:#444;
     border-bottom:1px solid #ccc;
   }
@@ -116,94 +117,94 @@
 
   /* ========== 标题 ========== */
   .headline{
-    margin:20px 0 0;
-    font-size:34px;
-    line-height:1.3;
+    margin:14px 0 0;
+    font-size:30px;
+    line-height:1.25;
     font-weight:700;
     text-align:center;
     letter-spacing:.02em;
   }
   .headline-2{
-    margin:18px 0 0;
-    font-size:28px;
-    line-height:1.3;
+    margin:12px 0 0;
+    font-size:24px;
+    line-height:1.25;
     font-weight:700;
     text-align:center;
     letter-spacing:.03em;
   }
   .headline-3{
     margin:0;
-    font-size:19px;
-    line-height:1.35;
+    font-size:16px;
+    line-height:1.3;
     font-weight:700;
     text-align:center;
     letter-spacing:.02em;
   }
   .deck{
-    margin:10px auto 0;
-    max-width:210mm;
-    font-size:12.5px;
-    line-height:1.8;
+    margin:8px auto 0;
+    max-width:205mm;
+    font-size:11.5px;
+    line-height:1.7;
     text-align:center;
     color:#555;
   }
   .subhead{
-    margin:7px 0 0;
+    margin:5px 0 0;
     text-align:center;
-    font-size:12px;
+    font-size:11px;
     color:#666;
     letter-spacing:.08em;
   }
   .byline{
-    margin:12px 0 0;
-    padding:6px 0;
+    margin:8px 0 0;
+    padding:4px 0;
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
     text-align:center;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:.2em;
     color:#666;
   }
 
   /* ========== 图片占位 ========== */
-  figure{ margin:14px 0 0; }
+  figure{ margin:10px 0 0; }
   .photo-box{
     width:100%;
-    height:35mm;
+    height:28mm;
     border:1px dashed #bbb;
     background:repeating-linear-gradient(45deg,#f5f3ed 0 6px,#faf9f5 6px 12px);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:11px;
+    font-size:10.5px;
     letter-spacing:.3em;
     text-indent:.3em;
     color:#aaa;
   }
-  .photo-box.short{ height:28mm; }
+  .photo-box.short{ height:22mm; }
   figcaption{
-    margin-top:6px;
-    font-size:11px;
+    margin-top:5px;
+    font-size:10.5px;
     color:#777;
-    line-height:1.6;
+    line-height:1.55;
     text-align:center;
   }
 
   /* ========== 正文两栏 ========== */
   .cols-2{
-    margin-top:14px;
+    margin-top:10px;
     column-count:2;
-    column-gap:8mm;
+    column-gap:7mm;
     column-rule:1px solid #ddd;
-    font-size:12.5px;
-    line-height:1.85;
+    font-size:11.5px;
+    line-height:1.72;
     text-align:justify;
   }
-  .cols-2 p{ margin:0 0 .55em; text-indent:2em; }
+  .cols-2 p{ margin:0 0 .5em; text-indent:2em; }
 
   /* ========== 栏目分隔 ========== */
   .section-bar{
-    margin:22px 0 0;
+    margin:16px 0 0;
     display:flex;
     align-items:center;
     gap:12px;
@@ -217,10 +218,10 @@
   }
   .section-bar b{
     flex:0 0 auto;
-    font-size:12px;
+    font-size:11.5px;
     font-weight:700;
-    letter-spacing:.42em;
-    text-indent:.42em;
+    letter-spacing:.4em;
+    text-indent:.4em;
     color:#9e2b25;
   }
 
@@ -228,37 +229,37 @@
   .bottom-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9mm;
-    margin-top:16px;
+    gap:7mm;
+    margin-top:12px;
   }
   .bottom-grid .item{
     display:flex;
     flex-direction:column;
   }
   .bottom-grid .headline-3{
-    padding-bottom:8px;
+    padding-bottom:6px;
     border-bottom:1px solid #ddd;
-    margin-bottom:10px;
+    margin-bottom:8px;
   }
   .bottom-grid .body{
-    font-size:12px;
-    line-height:1.8;
+    font-size:11px;
+    line-height:1.7;
     text-align:justify;
     color:#1d1d1d;
   }
   .bottom-grid .body p{
-    margin:0 0 .55em;
+    margin:0 0 .5em;
     text-indent:2em;
   }
 
   /* ========== 页脚 ========== */
   .colophon{
     margin-top:auto;
-    padding-top:8px;
+    padding-top:6px;
     border-top:1px solid #ccc;
     display:flex;
     justify-content:space-between;
-    font-size:10.5px;
+    font-size:10px;
     letter-spacing:.2em;
     color:#999;
   }
@@ -275,10 +276,11 @@
     .toolbar{ display:none !important; }
     .paper{
       width:297mm;
-      min-height:420mm;
-      padding:10mm 12mm 8mm;
+      height:420mm;
+      padding:8mm 10mm 6mm;
       box-shadow:none;
       margin:0;
+      overflow:hidden;
     }
   }
 
@@ -294,7 +296,6 @@
 </head>
 <body>
 
-<!-- ===== 下载按钮 ===== -->
 <div class="toolbar">
   <button id="downloadBtn">⬇ 下载高清 PNG</button>
 </div>
@@ -409,7 +410,6 @@
 (function () {
   const btn = document.getElementById('downloadBtn');
 
-  // iPad / iOS Safari 画布上限：单边 ≤ 4096px，总面积 ≤ 1600 万像素
   const MAX_SIDE = 4096;
   const MAX_PIXELS = 16 * 1024 * 1024;
 
