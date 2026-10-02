@@ -27,12 +27,9 @@
     top:18px;
     right:18px;
     z-index:999;
-    display:flex;
-    align-items:center;
-    gap:10px;
   }
   #downloadBtn{
-    padding:13px 24px;
+    padding:12px 22px;
     border:none;
     border-radius:8px;
     background:#9e2b25;
@@ -49,12 +46,12 @@
   #downloadBtn:disabled{ opacity:.7; cursor:wait; transform:none; }
   #downloadBtn.done{ background:#1f7a3d; }
 
-  /* ========== 纸张：A3 纵向（真实毫米尺寸） ========== */
+  /* ========== 纸张：A3 纵向 ========== */
   .paper{
     width:297mm;
     min-height:420mm;
     background:#fdfcf9;
-    padding:12mm 14mm 10mm;
+    padding:10mm 12mm 8mm;
     box-shadow:0 6px 30px rgba(0,0,0,.25);
     display:flex;
     flex-direction:column;
@@ -65,14 +62,14 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
+    gap:14px;
   }
   .mast-side{
     flex:0 0 auto;
-    width:46mm;
-    font-size:11.5px;
+    width:44mm;
+    font-size:10.5px;
     line-height:1.8;
-    letter-spacing:.1em;
+    letter-spacing:.08em;
     color:#555;
   }
   .mast-side.right{ text-align:right; }
@@ -81,7 +78,7 @@
     flex:1 1 auto;
     margin:0;
     text-align:center;
-    font-size:52px;
+    font-size:46px;
     font-weight:700;
     line-height:1;
     letter-spacing:.2em;
@@ -90,8 +87,8 @@
   }
   .mast-title small{
     display:block;
-    margin-top:8px;
-    font-size:11px;
+    margin-top:7px;
+    font-size:10px;
     font-weight:400;
     letter-spacing:.6em;
     text-indent:.6em;
@@ -99,7 +96,7 @@
   }
 
   .rule-double{
-    margin-top:12px;
+    margin-top:10px;
     border-top:3px solid #1a1a1a;
     border-bottom:1px solid #1a1a1a;
     height:4px;
@@ -108,9 +105,9 @@
   .dateline{
     display:flex;
     justify-content:center;
-    gap:24px;
-    padding:8px 0;
-    font-size:11.5px;
+    gap:22px;
+    padding:7px 0;
+    font-size:10.5px;
     letter-spacing:.16em;
     color:#444;
     border-bottom:1px solid #ccc;
@@ -119,89 +116,97 @@
 
   /* ========== 标题 ========== */
   .headline{
-    margin:24px 0 0;
-    font-size:36px;
+    margin:20px 0 0;
+    font-size:34px;
     line-height:1.3;
     font-weight:700;
     text-align:center;
     letter-spacing:.02em;
   }
   .headline-2{
-    margin:22px 0 0;
-    font-size:30px;
+    margin:18px 0 0;
+    font-size:28px;
     line-height:1.3;
     font-weight:700;
     text-align:center;
     letter-spacing:.03em;
   }
+  .headline-3{
+    margin:0;
+    font-size:19px;
+    line-height:1.35;
+    font-weight:700;
+    text-align:center;
+    letter-spacing:.02em;
+  }
   .deck{
-    margin:12px auto 0;
-    max-width:200mm;
-    font-size:14px;
-    line-height:1.85;
+    margin:10px auto 0;
+    max-width:210mm;
+    font-size:12.5px;
+    line-height:1.8;
     text-align:center;
     color:#555;
   }
   .subhead{
-    margin:9px 0 0;
+    margin:7px 0 0;
     text-align:center;
-    font-size:13.5px;
+    font-size:12px;
     color:#666;
-    letter-spacing:.1em;
+    letter-spacing:.08em;
   }
   .byline{
-    margin:14px 0 0;
-    padding:7px 0;
+    margin:12px 0 0;
+    padding:6px 0;
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
     text-align:center;
-    font-size:12px;
-    letter-spacing:.22em;
+    font-size:11px;
+    letter-spacing:.2em;
     color:#666;
   }
 
   /* ========== 图片占位 ========== */
-  figure{ margin:18px 0 0; }
+  figure{ margin:14px 0 0; }
   .photo-box{
     width:100%;
-    height:62mm;
+    height:35mm;
     border:1px dashed #bbb;
     background:repeating-linear-gradient(45deg,#f5f3ed 0 6px,#faf9f5 6px 12px);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:12px;
+    font-size:11px;
     letter-spacing:.3em;
     text-indent:.3em;
     color:#aaa;
   }
-  .photo-box.short{ height:52mm; }
+  .photo-box.short{ height:28mm; }
   figcaption{
-    margin-top:8px;
-    font-size:12px;
+    margin-top:6px;
+    font-size:11px;
     color:#777;
-    line-height:1.7;
+    line-height:1.6;
     text-align:center;
   }
 
   /* ========== 正文两栏 ========== */
   .cols-2{
-    margin-top:18px;
+    margin-top:14px;
     column-count:2;
-    column-gap:9mm;
+    column-gap:8mm;
     column-rule:1px solid #ddd;
-    font-size:13.5px;
-    line-height:1.95;
+    font-size:12.5px;
+    line-height:1.85;
     text-align:justify;
   }
-  .cols-2 p{ margin:0 0 .6em; text-indent:2em; }
+  .cols-2 p{ margin:0 0 .55em; text-indent:2em; }
 
   /* ========== 栏目分隔 ========== */
   .section-bar{
-    margin:26px 0 0;
+    margin:22px 0 0;
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:12px;
   }
   .section-bar::before,
   .section-bar::after{
@@ -212,21 +217,48 @@
   }
   .section-bar b{
     flex:0 0 auto;
-    font-size:12.5px;
+    font-size:12px;
     font-weight:700;
-    letter-spacing:.44em;
-    text-indent:.44em;
+    letter-spacing:.42em;
+    text-indent:.42em;
     color:#9e2b25;
+  }
+
+  /* ========== 底部并排两栏 ========== */
+  .bottom-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9mm;
+    margin-top:16px;
+  }
+  .bottom-grid .item{
+    display:flex;
+    flex-direction:column;
+  }
+  .bottom-grid .headline-3{
+    padding-bottom:8px;
+    border-bottom:1px solid #ddd;
+    margin-bottom:10px;
+  }
+  .bottom-grid .body{
+    font-size:12px;
+    line-height:1.8;
+    text-align:justify;
+    color:#1d1d1d;
+  }
+  .bottom-grid .body p{
+    margin:0 0 .55em;
+    text-indent:2em;
   }
 
   /* ========== 页脚 ========== */
   .colophon{
     margin-top:auto;
-    padding-top:9px;
+    padding-top:8px;
     border-top:1px solid #ccc;
     display:flex;
     justify-content:space-between;
-    font-size:11px;
+    font-size:10.5px;
     letter-spacing:.2em;
     color:#999;
   }
@@ -244,13 +276,13 @@
     .paper{
       width:297mm;
       min-height:420mm;
-      padding:12mm 14mm 10mm;
+      padding:10mm 12mm 8mm;
       box-shadow:none;
       margin:0;
     }
   }
 
-  /* ========== 小屏缩放（仅屏幕预览用，不影响打印） ========== */
+  /* ========== 小屏缩放 ========== */
   @media screen and (max-width:1240px){ .paper{ zoom:.92; } }
   @media screen and (max-width:1120px){ .paper{ zoom:.82; } }
   @media screen and (max-width:1000px){ .paper{ zoom:.72; } }
@@ -332,6 +364,36 @@
     <p>川军看到这场面如同挨了一记晴空霹雳。突然，他们在桥的那头放起火来。火苗如同一道屏障，把红军阻拦在胜利道路以西。冲在最前的红军战士们，这时大喊一声“同志们冲啊”就向火焰冲去，身上着火也全然无心想着熄灭，如同温染的金凤，带着革命的满腔热血，直取对岸！川军见此情景，不由得四散奔逃，溃不成军。泸定桥之战，红军以它的气势，它的精神，在绝境中开出一条生路，让中央红军得以继续长征北上。可以说，这是长征中最具传奇色彩的战役之一。</p>
   </div>
 
+  <!-- ===== 栏目分隔 ===== -->
+  <div class="section-bar"><b>书评 · 访谈</b></div>
+
+  <!-- ===== 底部并排两栏 ===== -->
+  <div class="bottom-grid">
+
+    <!-- 左：红星照耀中国读后感 -->
+    <div class="item">
+      <h3 class="headline-3">《红星照耀中国》读后感</h3>
+      <div class="body">
+        <p>有这样一本书，书的作者是一位外国记者。1936年，他冒着生命危险去到了被封锁的陕北苏区革命根据地，只为向世界解开共产党内部的种种谜团。这个记者就是埃德加·斯诺，这本书就是举世闻名的《红星照耀中国》。</p>
+        <p>斯诺的心中一直有许多问题：“中国共产党人究竟是什么样的人？”“有什么不可动摇的力量推动他们豁出性命去拥护这种政见呢？”“他们的运动的革命基础是什么？”为了找寻这些问题的答案，也为了给外部世界还原一个真实的中国共产党，斯诺深入革命腹地陕西保安（今属陕西省志丹县）开展了长达9个月的深度访问。其间他遇见并采访了毛泽东、周恩来、彭德怀、林伯渠、邓发、徐海东等人。他描绘了他们的言谈举止，追溯了他们的家庭背景和青少年时代，试图找寻他们成为共产党人的原因。斯诺通过采访，还获得了大量关于长征的第一手资料，还拍摄了许多根据地和革命人物的图片，为后人留下了许多珍贵的形象资料。</p>
+        <p>书中最令我印象深刻的有两个点：第一是各大共产党领袖真实的人格和言谈举止。彭德怀“令他高兴得有些孩子气的一样最珍贵的物品是一件降落伞布做成的背心，那是击落的敌机上所缴获的降落伞制成的。”徐海东“在骑马时撞上了一棵树，昏迷三天终于醒来后却发现门牙已经嵌在那棵树上了”……共产党领袖们也有生活化的一面。第二是红军长征中的大无畏与勇气：安顺场17名勇士，孤船渡往对岸，不仅有翻覆的风险，对岸还有川军严密防守；大渡河22勇士，攀着铁索，冒着弹雨在大渡河上飞进……他们，用行动，展示了自己最崇高的理想……</p>
+        <p>乱世已平，天下安宁。在中国成立77周年的此时此刻，我们更不能忘记，没有先辈的浴血奋战与创新开拓，就没有光明的今天。</p>
+      </div>
+    </div>
+
+    <!-- 右：长征精神 -->
+    <div class="item">
+      <h3 class="headline-3">长征精神</h3>
+      <div class="body">
+        <p>长征是世界战争史上绝无仅有的一场战略大转移，也是关乎中国共产党和苏维埃政权存亡的一次大型战略转移。不过，在现在的群众眼中，长征究竟是什么？长征又带给了我们什么？</p>
+        <p>我采访了两名群众，一名是大约40岁的中年人，另一名是65岁左右的老年人。</p>
+        <p>第一名群众认为长征是一次伟大的战略大转移，是由于红军打不过，那么我们就撤退，撤到其他地方继续再进行反抗战争。第二名阅历更多的群众则给出了他自己更详尽的见解：由于李德是共产国际派来的没有任何实战经验的人，遵循教条主义，给红军带来了许多损失。在第五次反围剿中，由于李德的错误指挥，红军不仅付出了重大牺牲，而且屡战屡败根据地越来越小。在实施战略转移时，明知道湘江对面有敌人设下的重兵，但李德坚持原来的计划，血战湘江，最终付出了惨痛的牺牲。</p>
+        <p>关于长征留下的精神，第一名群众认为，长征是徒步完成的，并且在长征过程中遇到了国民党军的各种阻挠，但是红军并没有畏惧，而是奋战到底，体现了坚韧不拔、不怕牺牲的精神。第二名群众则引用了毛主席曾经说过的非常著名的一句话，长征是宣言书，长征是宣传队，长征是播种机。不论现在经过了多少年，长征的记忆、长征的精神，以及长征带给我们的启示，都不会从时代中所消失，而是会继续发扬光大下去。</p>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ===== 页脚 ===== -->
   <footer class="colophon sans">
     <span>银杏报 · 国庆特刊</span>
@@ -371,18 +433,15 @@
         throw new Error('html2canvas 未加载，请检查网络');
       }
 
-      // 1) 取消屏幕缩放，让排版回到原始毫米尺寸
       paper.style.zoom = '1';
       window.scrollTo(0, 0);
       await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
 
-      // 2) 按设备上限算出最大安全倍数
       const w = paper.offsetWidth;
       const h = paper.offsetHeight;
       const maxScale = Math.max(2, calcScale(w, h));
 
-      // 3) 从高到低尝试，失败就降一档
       let canvas = null;
       for (const factor of [1, 0.85, 0.7, 0.55]) {
         try {
@@ -402,7 +461,6 @@
       }
       if (!canvas) throw new Error('内存不足，无法生成图片');
 
-      // 4) 下载
       const d = new Date();
       const stamp = d.getFullYear()
         + String(d.getMonth() + 1).padStart(2, '0')
