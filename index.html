@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>银杏报 · 铭记长征专版</title>
+<style>
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background:#b8b3a8;
+    padding:30px 16px 50px;
+    font-family:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+    color:#1a1a1a;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    justify-content:center;
+  }
+  .sans{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  }
+
+  /* ========== 下载按钮 ========== */
+  .toolbar{
+    position:fixed;
+    top:18px;
+    right:18px;
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  #downloadBtn{
+    padding:13px 24px;
+    border:none;
+    border-radius:8px;
+    background:#9e2b25;
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.06em;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+    transition:background .2s, transform .2s;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  #downloadBtn:hover{ background:#7f221d; transform:translateY(-1px); }
+  #downloadBtn:disabled{ opacity:.7; cursor:wait; transform:none; }
+  #downloadBtn.done{ background:#1f7a3d; }
+
+  /* ========== 纸张：A3 纵向（真实毫米尺寸） ========== */
+  .paper{
+    width:297mm;
+    min-height:420mm;
+    background:#fdfcf9;
+    padding:12mm 14mm 10mm;
+    box-shadow:0 6px 30px rgba(0,0,0,.25);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ========== 报头 ========== */
+  .masthead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .mast-side{
+    flex:0 0 auto;
+    width:46mm;
+    font-size:11.5px;
+    line-height:1.8;
+    letter-spacing:.1em;
+    color:#555;
+  }
+  .mast-side.right{ text-align:right; }
+
+  .mast-title{
+    flex:1 1 auto;
+    margin:0;
+    text-align:center;
+    font-size:52px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.2em;
+    text-indent:.2em;
+    white-space:nowrap;
+  }
+  .mast-title small{
+    display:block;
+    margin-top:8px;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:.6em;
+    text-indent:.6em;
+    color:#b22222;
+  }
+
+  .rule-double{
+    margin-top:12px;
+    border-top:3px solid #1a1a1a;
+    border-bottom:1px solid #1a1a1a;
+    height:4px;
+  }
+
+  .dateline{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    padding:8px 0;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    color:#444;
+    border-bottom:1px solid #ccc;
+  }
+  .dateline .dot{ color:#b22222; }
+
+  /* ========== 标题 ========== */
+  .headline{
+    margin:24px 0 0;
+    font-size:36px;
+    line-height:1.3;
+    font-weight:700;
+    text-align:center;
+    letter-spacing:.02em;
+  }
+  .headline-2{
+    margin:22px 0 0;
+    font-size:30px;
+    line-height:1.3;
+    font-weight:700;
+    text-align:center;
+    letter-spacing:.03em;
+  }
+  .deck{
+    margin:12px auto 0;
+    max-width:200mm;
+    font-size:14px;
+    line-height:1.85;
+    text-align:center;
+    color:#555;
+  }
+  .subhead{
+    margin:9px 0 0;
+    text-align:center;
+    font-size:13.5px;
+    color:#666;
+    letter-spacing:.1em;
+  }
+  .byline{
+    margin:14px 0 0;
+    padding:7px 0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.22em;
+    color:#666;
+  }
+
+  /* ========== 图片占位 ========== */
+  figure{ margin:18px 0 0; }
+  .photo-box{
+    width:100%;
+    height:62mm;
+    border:1px dashed #bbb;
+    background:repeating-linear-gradient(45deg,#f5f3ed 0 6px,#faf9f5 6px 12px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    letter-spacing:.3em;
+    text-indent:.3em;
+    color:#aaa;
+  }
+  .photo-box.short{ height:52mm; }
+  figcaption{
+    margin-top:8px;
+    font-size:12px;
+    color:#777;
+    line-height:1.7;
+    text-align:center;
+  }
+
+  /* ========== 正文两栏 ========== */
+  .cols-2{
+    margin-top:18px;
+    column-count:2;
+    column-gap:9mm;
+    column-rule:1px solid #ddd;
+    font-size:13.5px;
+    line-height:1.95;
+    text-align:justify;
+  }
+  .cols-2 p{ margin:0 0 .6em; text-indent:2em; }
+
+  /* ========== 栏目分隔 ========== */
+  .section-bar{
+    margin:26px 0 0;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .section-bar::before,
+  .section-bar::after{
+    content:"";
+    flex:1 1 auto;
+    height:1px;
+    background:#b8b2a4;
+  }
+  .section-bar b{
+    flex:0 0 auto;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.44em;
+    text-indent:.44em;
+    color:#9e2b25;
+  }
+
+  /* ========== 页脚 ========== */
+  .colophon{
+    margin-top:auto;
+    padding-top:9px;
+    border-top:1px solid #ccc;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:.2em;
+    color:#999;
+  }
+
+  /* ========== 打印：精确一页 A3 ========== */
+  @page{ size:A3 portrait; margin:0; }
+  @media print{
+    html,body{
+      background:#fff;
+      margin:0;
+      padding:0;
+      display:block;
+    }
+    .toolbar{ display:none !important; }
+    .paper{
+      width:297mm;
+      min-height:420mm;
+      padding:12mm 14mm 10mm;
+      box-shadow:none;
+      margin:0;
+    }
+  }
+
+  /* ========== 小屏缩放（仅屏幕预览用，不影响打印） ========== */
+  @media screen and (max-width:1240px){ .paper{ zoom:.92; } }
+  @media screen and (max-width:1120px){ .paper{ zoom:.82; } }
+  @media screen and (max-width:1000px){ .paper{ zoom:.72; } }
+  @media screen and (max-width:880px){ .paper{ zoom:.6; } }
+  @media screen and (max-width:760px){
+    .toolbar{ top:auto; bottom:14px; right:14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 下载按钮 ===== -->
+<div class="toolbar">
+  <button id="downloadBtn">⬇ 下载高清 PNG</button>
+</div>
+
+<div class="paper">
+
+  <!-- ===== 报头 ===== -->
+  <header class="masthead">
+    <div class="mast-side sans">
+      树德实验中学 · 银杏社 主办
+    </div>
+    <h1 class="mast-title">
+      银杏报
+      <small>GINKGO POST</small>
+    </h1>
+    <div class="mast-side sans right">
+      2026 年 10 月 1 日<br>星期四
+    </div>
+  </header>
+
+  <div class="rule-double"></div>
+
+  <div class="dateline sans">
+    <span>国庆特刊</span>
+    <span class="dot">◆</span>
+    <span>铭记长征 · 主题专版</span>
+    <span class="dot">◆</span>
+    <span>第 1 版</span>
+  </div>
+
+  <!-- ===== 头条：朝会新闻 ===== -->
+  <h2 class="headline">树德实验“铭记长征”主题朝会成功举办</h2>
+  <p class="deck">
+    李老师为同学们讲解为何要长征、长征的经过、长征中的著名战役，以及长征精神的内涵与传承
+  </p>
+  <div class="byline sans">树德实验银杏社 9 月 22 日 15 时电</div>
+
+  <figure>
+    <div class="photo-box">此 处 放 图 片</div>
+    <figcaption>图一 · 9 月 21 日，“铭记长征”主题朝会在树德实验东马棚校区举行。</figcaption>
+  </figure>
+
+  <div class="cols-2">
+    <p>9月21日，“铭记长征”主题朝会在树德实验东马棚校区成功举办。本次朝会旨在帮助学生了解长征相关史实及长征精神的内涵。</p>
+    <p>朝会中，来自成都知名讲演公司的李老师为学生们讲解了为何要长征、长征的经过、长征中的著名战役及长征精神的内涵和传承。</p>
+    <p>李老师讲解了长征的原因：由于博古、李德的左倾错误指挥，红军在第5次反“围剿”中失利，被迫撤离江西瑞金根据地，开启二万五千里长征之路。</p>
+    <p>李老师还讲解了长征中的著名战役，如血战湘江、四渡赤水、强渡大渡河、飞夺泸定桥等。</p>
+    <p>通过这些史实的讲解，学生们得以了解到“长征精神”的意义不止于坚持，而是不畏强敌、不怕牺牲、坚韧不拔、英勇顽强、无坚不摧、一往无前的精神，也让长征精神得以传承。</p>
+  </div>
+
+  <!-- ===== 栏目分隔 ===== -->
+  <div class="section-bar"><b>史海钩沉</b></div>
+
+  <!-- ===== 第二篇：飞夺泸定桥 ===== -->
+  <h2 class="headline-2">飞夺泸定桥</h2>
+  <p class="subhead">—— 记红军长征泸定桥之战</p>
+
+  <figure>
+    <div class="photo-box short">此 处 放 图 片</div>
+    <figcaption>图二 · 大渡河上的泸定桥，十三条铁索横跨两岸。</figcaption>
+  </figure>
+
+  <div class="cols-2">
+    <p>天险大渡河，发源于几千米高的青藏高原之上，一路向南飞奔而下，在四川泸定附近，从4000米高的一级阶梯冲流而下，进入海拔2000米的二级阶梯，落差巨大，水势凶猛。走上长征路的工农红军，由于乘船过河十分不现实，所以只得抢占上游一座铁索桥——泸定桥。一支几百人的连队，一夜之间急行军240华里来到这里，只为给大军开辟生的道路。</p>
+    <p>泸定桥下，水流急到不见一丝水色，仅是些白色的急流和浪花。不时，一道水流打到礁石上，顿时水花飞溅起几米高。而桥上，一片木板都没有了，只剩了十三条乌黑的铁索。蒋介石也料到了这座桥的重要性，早已派人切断了这座桥。红军、中国的苏维埃政权，陷入了绝境。</p>
+    <p>就在这紧要关头，先锋连队只得再次征求敢死队。二十二名勇士站了出来，他们的背上绑上了手榴弹和毛瑟枪。二十二位无畏的战士爬上了铁索桥，向光明，向胜利，进发了。对岸川军看形势不对，立马朝着勇士们开火。桥上的战士们也开火反击……第一个战士被击中，掉了下去，被急流所淹没。紧接着是第二个、第三个……可是，一旦有人掉下去，后面的人就立马补上……红军，离胜利，离希望，越来越近。</p>
+    <p>川军看到这场面如同挨了一记晴空霹雳。突然，他们在桥的那头放起火来。火苗如同一道屏障，把红军阻拦在胜利道路以西。冲在最前的红军战士们，这时大喊一声“同志们冲啊”就向火焰冲去，身上着火也全然无心想着熄灭，如同温染的金凤，带着革命的满腔热血，直取对岸！川军见此情景，不由得四散奔逃，溃不成军。泸定桥之战，红军以它的气势，它的精神，在绝境中开出一条生路，让中央红军得以继续长征北上。可以说，这是长征中最具传奇色彩的战役之一。</p>
+  </div>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="colophon sans">
+    <span>银杏报 · 国庆特刊</span>
+    <span>树德实验中学银杏社</span>
+    <span>第 1 版</span>
+  </footer>
+
+</div>
+
+<!-- html2canvas：把网页转成 PNG -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+(function () {
+  const btn = document.getElementById('downloadBtn');
+
+  // iPad / iOS Safari 画布上限：单边 ≤ 4096px，总面积 ≤ 1600 万像素
+  const MAX_SIDE = 4096;
+  const MAX_PIXELS = 16 * 1024 * 1024;
+
+  function calcScale(w, h) {
+    const sideLimit = MAX_SIDE / Math.max(w, h);
+    const pixelLimit = Math.sqrt(MAX_PIXELS / (w * h));
+    return Math.min(sideLimit, pixelLimit);
+  }
+
+  btn.addEventListener('click', async function () {
+    const paper = document.querySelector('.paper');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.classList.remove('done');
+    btn.textContent = '正在生成…';
+
+    const prevZoom = paper.style.zoom;
+
+    try {
+      if (typeof html2canvas === 'undefined') {
+        throw new Error('html2canvas 未加载，请检查网络');
+      }
+
+      // 1) 取消屏幕缩放，让排版回到原始毫米尺寸
+      paper.style.zoom = '1';
+      window.scrollTo(0, 0);
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      if (document.fonts && document.fonts.ready) await document.fonts.ready;
+
+      // 2) 按设备上限算出最大安全倍数
+      const w = paper.offsetWidth;
+      const h = paper.offsetHeight;
+      const maxScale = Math.max(2, calcScale(w, h));
+
+      // 3) 从高到低尝试，失败就降一档
+      let canvas = null;
+      for (const factor of [1, 0.85, 0.7, 0.55]) {
+        try {
+          canvas = await html2canvas(paper, {
+            scale: maxScale * factor,
+            backgroundColor: '#ffffff',
+            useCORS: true,
+            logging: false,
+            windowWidth: paper.scrollWidth,
+            windowHeight: paper.scrollHeight
+          });
+          break;
+        } catch (e) {
+          console.warn('倍数 ' + (maxScale * factor).toFixed(2) + ' 失败，降档重试', e);
+          canvas = null;
+        }
+      }
+      if (!canvas) throw new Error('内存不足，无法生成图片');
+
+      // 4) 下载
+      const d = new Date();
+      const stamp = d.getFullYear()
+        + String(d.getMonth() + 1).padStart(2, '0')
+        + String(d.getDate()).padStart(2, '0');
+      const filename = '银杏报_' + stamp + '_' + canvas.width + 'x' + canvas.height + '.png';
+
+      await new Promise((resolve, reject) => {
+        canvas.toBlob(function (blob) {
+          if (!blob) { reject(new Error('图片生成失败')); return; }
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.download = filename;
+          link.href = url;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(() => URL.revokeObjectURL(url), 4000);
+          resolve();
+        }, 'image/png');
+      });
+
+      btn.classList.add('done');
+      btn.textContent = '✓ ' + canvas.width + '×' + canvas.height;
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('done');
+      }, 2600);
+
+    } catch (err) {
+      console.error(err);
+      alert('生成失败：' + err.message +
+        '\n\n如果反复失败，建议改用「打印 → 存储为 PDF」，或在电脑上打开这个文件下载高清 PNG。');
+      btn.textContent = originalText;
+    } finally {
+      paper.style.zoom = prevZoom;
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
