@@ -46,13 +46,13 @@
   #downloadBtn:disabled{ opacity:.7; cursor:wait; transform:none; }
   #downloadBtn.done{ background:#1f7a3d; }
 
-  /* ========== 纸张：A3 纵向（内容锁定在一页） ========== */
+  /* ========== 纸张：A3 纵向 ========== */
   .paper{
     width:297mm;
     height:420mm;
     overflow:hidden;
     background:#fdfcf9;
-    padding:8mm 10mm 6mm;
+    padding:7mm 9mm 5mm;
     box-shadow:0 6px 30px rgba(0,0,0,.25);
     display:flex;
     flex-direction:column;
@@ -68,8 +68,8 @@
   .mast-side{
     flex:0 0 auto;
     width:42mm;
-    font-size:10px;
-    line-height:1.7;
+    font-size:9.5px;
+    line-height:1.65;
     letter-spacing:.08em;
     color:#555;
   }
@@ -79,7 +79,7 @@
     flex:1 1 auto;
     margin:0;
     text-align:center;
-    font-size:40px;
+    font-size:38px;
     font-weight:700;
     line-height:1;
     letter-spacing:.2em;
@@ -88,8 +88,8 @@
   }
   .mast-title small{
     display:block;
-    margin-top:6px;
-    font-size:9.5px;
+    margin-top:5px;
+    font-size:9px;
     font-weight:400;
     letter-spacing:.55em;
     text-indent:.55em;
@@ -97,7 +97,7 @@
   }
 
   .rule-double{
-    margin-top:8px;
+    margin-top:7px;
     border-top:3px solid #1a1a1a;
     border-bottom:1px solid #1a1a1a;
     height:4px;
@@ -106,9 +106,9 @@
   .dateline{
     display:flex;
     justify-content:center;
-    gap:20px;
-    padding:5px 0;
-    font-size:10px;
+    gap:18px;
+    padding:4px 0;
+    font-size:9.5px;
     letter-spacing:.15em;
     color:#444;
     border-bottom:1px solid #ccc;
@@ -117,51 +117,51 @@
 
   /* ========== 标题 ========== */
   .headline{
-    margin:14px 0 0;
-    font-size:30px;
-    line-height:1.25;
+    margin:10px 0 0;
+    font-size:27px;
+    line-height:1.22;
     font-weight:700;
     text-align:center;
     letter-spacing:.02em;
   }
   .headline-2{
-    margin:12px 0 0;
-    font-size:24px;
-    line-height:1.25;
+    margin:8px 0 0;
+    font-size:22px;
+    line-height:1.22;
     font-weight:700;
     text-align:center;
     letter-spacing:.03em;
   }
   .headline-3{
     margin:0;
-    font-size:16px;
+    font-size:15px;
     line-height:1.3;
     font-weight:700;
     text-align:center;
     letter-spacing:.02em;
   }
   .deck{
-    margin:8px auto 0;
+    margin:6px auto 0;
     max-width:205mm;
-    font-size:11.5px;
-    line-height:1.7;
+    font-size:11px;
+    line-height:1.65;
     text-align:center;
     color:#555;
   }
   .subhead{
-    margin:5px 0 0;
+    margin:4px 0 0;
     text-align:center;
-    font-size:11px;
+    font-size:10.5px;
     color:#666;
     letter-spacing:.08em;
   }
   .byline{
-    margin:8px 0 0;
-    padding:4px 0;
+    margin:6px 0 0;
+    padding:3px 0;
     border-top:1px solid #ddd;
     border-bottom:1px solid #ddd;
     text-align:center;
-    font-size:10px;
+    font-size:9.5px;
     letter-spacing:.2em;
     color:#666;
   }
@@ -170,41 +170,41 @@
   figure{ margin:10px 0 0; }
   .photo-box{
     width:100%;
-    height:28mm;
+    height:24mm;
     border:1px dashed #bbb;
     background:repeating-linear-gradient(45deg,#f5f3ed 0 6px,#faf9f5 6px 12px);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:10.5px;
+    font-size:10px;
     letter-spacing:.3em;
     text-indent:.3em;
     color:#aaa;
   }
-  .photo-box.short{ height:22mm; }
+  /* 飞夺泸定桥的图：加高，更醒目 */
+  .lead-photo{
+    height:40mm;
+  }
   figcaption{
-    margin-top:5px;
-    font-size:10.5px;
+    margin-top:4px;
+    font-size:10px;
     color:#777;
-    line-height:1.55;
+    line-height:1.5;
     text-align:center;
   }
 
-  /* ========== 正文两栏 ========== */
+  /* ========== 正文：单栏一长横 ========== */
   .cols-2{
-    margin-top:10px;
-    column-count:2;
-    column-gap:7mm;
-    column-rule:1px solid #ddd;
-    font-size:11.5px;
-    line-height:1.72;
+    margin-top:8px;
+    font-size:11px;
+    line-height:1.62;
     text-align:justify;
   }
-  .cols-2 p{ margin:0 0 .5em; text-indent:2em; }
+  .cols-2 p{ margin:0 0 .45em; text-indent:2em; }
 
   /* ========== 栏目分隔 ========== */
   .section-bar{
-    margin:16px 0 0;
+    margin:12px 0 0;
     display:flex;
     align-items:center;
     gap:12px;
@@ -218,7 +218,7 @@
   }
   .section-bar b{
     flex:0 0 auto;
-    font-size:11.5px;
+    font-size:11px;
     font-weight:700;
     letter-spacing:.4em;
     text-indent:.4em;
@@ -229,37 +229,47 @@
   .bottom-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:7mm;
-    margin-top:12px;
+    gap:6mm;
+    margin-top:8px;
+    align-items:start;
   }
   .bottom-grid .item{
     display:flex;
     flex-direction:column;
   }
   .bottom-grid .headline-3{
-    padding-bottom:6px;
+    padding-bottom:5px;
     border-bottom:1px solid #ddd;
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
   .bottom-grid .body{
-    font-size:11px;
-    line-height:1.7;
+    font-size:10px;
+    line-height:1.6;
     text-align:justify;
     color:#1d1d1d;
+    overflow:hidden;
   }
   .bottom-grid .body p{
-    margin:0 0 .5em;
+    margin:0 0 .45em;
     text-indent:2em;
+  }
+
+  /* ========== 右栏：右下角横向图片框（加大 + 下移） ========== */
+  .float-photo{
+    float:right;
+    width:64%;
+    height:52mm;
+    margin:12mm 0 4px 6mm;   /* 上边距从 2px 改为 12mm，整体下移 */
   }
 
   /* ========== 页脚 ========== */
   .colophon{
     margin-top:auto;
-    padding-top:6px;
+    padding-top:5px;
     border-top:1px solid #ccc;
     display:flex;
     justify-content:space-between;
-    font-size:10px;
+    font-size:9.5px;
     letter-spacing:.2em;
     color:#999;
   }
@@ -277,7 +287,7 @@
     .paper{
       width:297mm;
       height:420mm;
-      padding:8mm 10mm 6mm;
+      padding:7mm 9mm 5mm;
       box-shadow:none;
       margin:0;
       overflow:hidden;
@@ -326,17 +336,12 @@
     <span>第 1 版</span>
   </div>
 
-  <!-- ===== 头条：朝会新闻 ===== -->
+  <!-- ===== 头条：朝会新闻（无图） ===== -->
   <h2 class="headline">树德实验“铭记长征”主题朝会成功举办</h2>
   <p class="deck">
     李老师为同学们讲解为何要长征、长征的经过、长征中的著名战役，以及长征精神的内涵与传承
   </p>
   <div class="byline sans">树德实验银杏社 9 月 22 日 15 时电</div>
-
-  <figure>
-    <div class="photo-box">此 处 放 图 片</div>
-    <figcaption>图一 · 9 月 21 日，“铭记长征”主题朝会在树德实验东马棚校区举行。</figcaption>
-  </figure>
 
   <div class="cols-2">
     <p>9月21日，“铭记长征”主题朝会在树德实验东马棚校区成功举办。本次朝会旨在帮助学生了解长征相关史实及长征精神的内涵。</p>
@@ -349,14 +354,9 @@
   <!-- ===== 栏目分隔 ===== -->
   <div class="section-bar"><b>史海钩沉</b></div>
 
-  <!-- ===== 第二篇：飞夺泸定桥 ===== -->
+  <!-- ===== 第二篇：飞夺泸定桥（图在正文下方） ===== -->
   <h2 class="headline-2">飞夺泸定桥</h2>
   <p class="subhead">—— 记红军长征泸定桥之战</p>
-
-  <figure>
-    <div class="photo-box short">此 处 放 图 片</div>
-    <figcaption>图二 · 大渡河上的泸定桥，十三条铁索横跨两岸。</figcaption>
-  </figure>
 
   <div class="cols-2">
     <p>天险大渡河，发源于几千米高的青藏高原之上，一路向南飞奔而下，在四川泸定附近，从4000米高的一级阶梯冲流而下，进入海拔2000米的二级阶梯，落差巨大，水势凶猛。走上长征路的工农红军，由于乘船过河十分不现实，所以只得抢占上游一座铁索桥——泸定桥。一支几百人的连队，一夜之间急行军240华里来到这里，只为给大军开辟生的道路。</p>
@@ -364,6 +364,11 @@
     <p>就在这紧要关头，先锋连队只得再次征求敢死队。二十二名勇士站了出来，他们的背上绑上了手榴弹和毛瑟枪。二十二位无畏的战士爬上了铁索桥，向光明，向胜利，进发了。对岸川军看形势不对，立马朝着勇士们开火。桥上的战士们也开火反击……第一个战士被击中，掉了下去，被急流所淹没。紧接着是第二个、第三个……可是，一旦有人掉下去，后面的人就立马补上……红军，离胜利，离希望，越来越近。</p>
     <p>川军看到这场面如同挨了一记晴空霹雳。突然，他们在桥的那头放起火来。火苗如同一道屏障，把红军阻拦在胜利道路以西。冲在最前的红军战士们，这时大喊一声“同志们冲啊”就向火焰冲去，身上着火也全然无心想着熄灭，如同温染的金凤，带着革命的满腔热血，直取对岸！川军见此情景，不由得四散奔逃，溃不成军。泸定桥之战，红军以它的气势，它的精神，在绝境中开出一条生路，让中央红军得以继续长征北上。可以说，这是长征中最具传奇色彩的战役之一。</p>
   </div>
+
+  <figure>
+    <div class="photo-box lead-photo">此 处 放 图 片</div>
+    <figcaption>图 · 大渡河上的泸定桥，十三条铁索横跨两岸。</figcaption>
+  </figure>
 
   <!-- ===== 栏目分隔 ===== -->
   <div class="section-bar"><b>书评 · 访谈</b></div>
@@ -382,13 +387,14 @@
       </div>
     </div>
 
-    <!-- 右：长征精神 -->
+    <!-- 右：长征精神（文字流 + 右下角横向图片框，下移） -->
     <div class="item">
       <h3 class="headline-3">长征精神</h3>
       <div class="body">
         <p>长征是世界战争史上绝无仅有的一场战略大转移，也是关乎中国共产党和苏维埃政权存亡的一次大型战略转移。不过，在现在的群众眼中，长征究竟是什么？长征又带给了我们什么？</p>
         <p>我采访了两名群众，一名是大约40岁的中年人，另一名是65岁左右的老年人。</p>
-        <p>第一名群众认为长征是一次伟大的战略大转移，是由于红军打不过，那么我们就撤退，撤到其他地方继续再进行反抗战争。第二名阅历更多的群众则给出了他自己更详尽的见解：由于李德是共产国际派来的没有任何实战经验的人，遵循教条主义，给红军带来了许多损失。在第五次反围剿中，由于李德的错误指挥，红军不仅付出了重大牺牲，而且屡战屡败根据地越来越小。在实施战略转移时，明知道湘江对面有敌人设下的重兵，但李德坚持原来的计划，血战湘江，最终付出了惨痛的牺牲。</p>
+        <p>第一名群众认为长征是一次伟大的战略转移，是由于红军打不过，那么我们就撤退，撤到其他地方继续再进行反抗战争。第二名阅历更多的群众则给出了他自己更详尽的见解：由于李德是共产国际派来的没有任何实战经验的人，遵循教条主义，给红军带来了许多损失。在第五次反围剿中，由于李德的错误指挥，红军不仅付出了重大牺牲，而且屡战屡败根据地越来越小。在实施战略转移时，明知道湘江对面有敌人设下的重兵，但李德坚持原来的计划，血战湘江，最终付出了惨痛的牺牲。</p>
+        <div class="photo-box float-photo">此 处 放 图 片</div>
         <p>关于长征留下的精神，第一名群众认为，长征是徒步完成的，并且在长征过程中遇到了国民党军的各种阻挠，但是红军并没有畏惧，而是奋战到底，体现了坚韧不拔、不怕牺牲的精神。第二名群众则引用了毛主席曾经说过的非常著名的一句话，长征是宣言书，长征是宣传队，长征是播种机。不论现在经过了多少年，长征的记忆、长征的精神，以及长征带给我们的启示，都不会从时代中所消失，而是会继续发扬光大下去。</p>
       </div>
     </div>
