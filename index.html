@@ -166,25 +166,22 @@
     color:#666;
   }
 
-  /* ========== 图片占位 ========== */
+  /* ========== 图片 ========== */
   figure{ margin:10px 0 0; }
-  .photo-box{
+
+  .news-photo{
+    display:block;
     width:100%;
-    height:24mm;
-    border:1px dashed #bbb;
-    background:repeating-linear-gradient(45deg,#f5f3ed 0 6px,#faf9f5 6px 12px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:10px;
-    letter-spacing:.3em;
-    text-indent:.3em;
-    color:#aaa;
+    object-fit:cover;
+    object-position:center;
+    border:1px solid #ddd;
   }
-  /* 飞夺泸定桥的图：加高，更醒目 */
+
+  /* 飞夺泸定桥的图：加高往下撑 */
   .lead-photo{
-    height:40mm;
+    height:62mm;
   }
+
   figcaption{
     margin-top:4px;
     font-size:10px;
@@ -254,12 +251,13 @@
     text-indent:2em;
   }
 
-  /* ========== 右栏：右下角横向图片框（加大 + 下移） ========== */
+  /* ========== 右栏：右下角横向图片（下移） ========== */
   .float-photo{
     float:right;
     width:64%;
     height:52mm;
-    margin:12mm 0 4px 6mm;   /* 上边距从 2px 改为 12mm，整体下移 */
+    margin:12mm 0 4px 6mm;
+    object-fit:cover;
   }
 
   /* ========== 页脚 ========== */
@@ -365,8 +363,9 @@
     <p>川军看到这场面如同挨了一记晴空霹雳。突然，他们在桥的那头放起火来。火苗如同一道屏障，把红军阻拦在胜利道路以西。冲在最前的红军战士们，这时大喊一声“同志们冲啊”就向火焰冲去，身上着火也全然无心想着熄灭，如同温染的金凤，带着革命的满腔热血，直取对岸！川军见此情景，不由得四散奔逃，溃不成军。泸定桥之战，红军以它的气势，它的精神，在绝境中开出一条生路，让中央红军得以继续长征北上。可以说，这是长征中最具传奇色彩的战役之一。</p>
   </div>
 
+  <!-- 飞夺泸定桥配图 -->
   <figure>
-    <div class="photo-box lead-photo">此 处 放 图 片</div>
+    <img class="news-photo lead-photo" src="luding-bridge.jpg" alt="泸定桥">
     <figcaption>图 · 大渡河上的泸定桥，十三条铁索横跨两岸。</figcaption>
   </figure>
 
@@ -387,14 +386,16 @@
       </div>
     </div>
 
-    <!-- 右：长征精神（文字流 + 右下角横向图片框，下移） -->
+    <!-- 右：长征精神（文字流 + 右下角横向图片） -->
     <div class="item">
       <h3 class="headline-3">长征精神</h3>
       <div class="body">
         <p>长征是世界战争史上绝无仅有的一场战略大转移，也是关乎中国共产党和苏维埃政权存亡的一次大型战略转移。不过，在现在的群众眼中，长征究竟是什么？长征又带给了我们什么？</p>
         <p>我采访了两名群众，一名是大约40岁的中年人，另一名是65岁左右的老年人。</p>
         <p>第一名群众认为长征是一次伟大的战略转移，是由于红军打不过，那么我们就撤退，撤到其他地方继续再进行反抗战争。第二名阅历更多的群众则给出了他自己更详尽的见解：由于李德是共产国际派来的没有任何实战经验的人，遵循教条主义，给红军带来了许多损失。在第五次反围剿中，由于李德的错误指挥，红军不仅付出了重大牺牲，而且屡战屡败根据地越来越小。在实施战略转移时，明知道湘江对面有敌人设下的重兵，但李德坚持原来的计划，血战湘江，最终付出了惨痛的牺牲。</p>
-        <div class="photo-box float-photo">此 处 放 图 片</div>
+
+        <img class="news-photo float-photo" src="long-march.jpg" alt="长征精神">
+
         <p>关于长征留下的精神，第一名群众认为，长征是徒步完成的，并且在长征过程中遇到了国民党军的各种阻挠，但是红军并没有畏惧，而是奋战到底，体现了坚韧不拔、不怕牺牲的精神。第二名群众则引用了毛主席曾经说过的非常著名的一句话，长征是宣言书，长征是宣传队，长征是播种机。不论现在经过了多少年，长征的记忆、长征的精神，以及长征带给我们的启示，都不会从时代中所消失，而是会继续发扬光大下去。</p>
       </div>
     </div>
